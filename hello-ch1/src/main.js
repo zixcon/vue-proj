@@ -4,6 +4,8 @@ import rinitrouter from "./router";
 import store from "./store";
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
+// import 'components/theme/index.less';
+import 'iview/src/styles/index.less';
 
 // 初始化路由
 // import rinit from "@/router/rinit";

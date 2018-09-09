@@ -17,7 +17,7 @@
                         <BreadcrumbItem>Layout</BreadcrumbItem>
                     </Breadcrumb>
                     <Card>
-                        <div style="min-height: 300px;">
+                        <div style="min-height: 400px;">
                             <router-view></router-view>
                         </div>
                     </Card>
