@@ -1,13 +1,25 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div>
+        <div>
+                <router-link to="/about">/about</router-link>
+        </div>
+        <router-view></router-view>
     </div>
-    <router-view/>
+    <div id="nav">
+      <app-layout></app-layout>
+    </div>
+    
   </div>
 </template>
-
+<script>
+    import Layout from "@/components/layout/Layout.vue";
+    export default {
+        components: {
+            'app-layout':Layout
+        }
+    }
+</script>
 <style lang="less">
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
