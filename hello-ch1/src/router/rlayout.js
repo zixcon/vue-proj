@@ -57,8 +57,8 @@ export default function (router) {
             path: "/",
             // name: "home",
             // component: Home,
-            component: () =>
-                            import("@/views/home/Home.vue"),
+            // component: () => import("@/views/About.vue"),
+            component: () => import("@/components/layout/Layout.vue"),
             redirect:"/home",
         },
         {

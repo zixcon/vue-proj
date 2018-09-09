@@ -3,8 +3,11 @@ export default function (router) {
         {
         path: "/home",
         // name: "home",
-        redirect:"/home/login",
-        component: resolve => require(["@/components/layout/Layout.vue"], resolve),
+        // 这里少了component 则下级就无法展示了
+        // component: resolve => require(["@/components/layout/Layout.vue"], resolve),
+        // component: () => import("@/views/home/Index.vue"),
+        component: () => import("@/components/layout/Layout.vue"),
+        // redirect:"/home/index",
         children: [
                 {
                 path: "index",

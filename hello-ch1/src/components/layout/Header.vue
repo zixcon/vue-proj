@@ -1,15 +1,15 @@
 <template id="header">
             <Header>
-                <Menu mode="horizontal" theme="dark" active-name="login" @on-select="navselect">
+                <Menu mode="horizontal" theme="dark" active-name="/home/index" @on-select="navselect">
                     <div class="layout-logo"></div>
                     <div class="layout-nav" >
-                        <MenuItem name="index">
+                        <MenuItem name="/home/index">
                             <Icon type="ios-navigate"></Icon>
-                            Item 1
+                            INDEX
                         </MenuItem>
-                        <MenuItem name="login">
+                        <MenuItem name="/home/login">
                             <Icon type="ios-keypad"></Icon>
-                            Item 2
+                            LOGIN
                         </MenuItem>
                         <MenuItem name="3">
                             <Icon type="ios-analytics"></Icon>
@@ -31,7 +31,7 @@ export default {
   methods: {
     navselect(name) {
         console.log("header:navselect:" + name)
-        this.$emit('nav-select',name);
+        this.$emit('navselect',name);
     }
   }
 }

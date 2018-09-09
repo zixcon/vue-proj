@@ -1,23 +1,28 @@
 <template>
   <div id="app">
-  <div>
+  <!--
+    <div>
         <div>
                 <router-link to="/about">/about</router-link>
         </div>
         <router-view></router-view>
     </div>
+  -->
     <div id="nav">
+    <!--
       <app-layout></app-layout>
+    -->
+      <router-view></router-view>
     </div>
     
   </div>
 </template>
 <script>
-    import Layout from "@/components/layout/Layout.vue";
+    // import Layout from "@/components/layout/Layout.vue";
     export default {
-        components: {
-            'app-layout':Layout
-        }
+        // components: {
+        //  'app-layout':Layout
+        // }
     }
 </script>
 <style lang="less">

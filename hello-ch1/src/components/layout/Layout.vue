@@ -1,6 +1,5 @@
 <template id="layout">
-    <div id="app-layout">
-
+<!--
     <div>
         <div>
                 <router-link to="/home/login">/home/login</router-link>
@@ -8,15 +7,10 @@
         </div>
         <router-view></router-view>
     </div>
-    </div>
-    
-                
-                <!--
+ -->   
         <Layout>
-                <layout-header @nav-select="navselect"></layout-header>
+                <layout-header @navselect="navselect"></layout-header>
                 <Content :style="{padding: '0 50px'}">
-                <router-link to="/home/login">/home/login</router-link>
-                <router-view></router-view>
                     <Breadcrumb :style="{margin: '20px 0'}">
                         <BreadcrumbItem>Home</BreadcrumbItem>
                         <BreadcrumbItem>Components</BreadcrumbItem>
@@ -24,13 +18,12 @@
                     </Breadcrumb>
                     <Card>
                         <div style="min-height: 300px;">
-                            
+                            <router-view></router-view>
                         </div>
                     </Card>
                 </Content>
                 <layout-footer></layout-footer>
         </Layout>
-        -->
 </template>
 
 <script>
@@ -54,17 +47,18 @@
             navselect(item) {
                 console.log("layout:" + item);
                 this.$router.push({
-                    // path: '/home/index'
-                    name:item
+                    path: item
+                    // name:item
                 })
             }
-        },
-        watch: {
-            '$route' (to, from) {
-                console.log(to);
-                console.log(from);
-            }
         }
+        // ,
+        // watch: {
+        //    '$route' (to, from) {
+        //        console.log(to);
+        //        console.log(from);
+        //    }
+        // }
     }
     
 </script>
