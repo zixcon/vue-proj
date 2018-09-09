@@ -4,6 +4,7 @@ import Router from "vue-router";
 import rinterceptor from "@/router/rinterceptor";
 import rlayout from "@/router/rlayout";
 import rhome from "@/router/rhome";
+import ruser from "@/router/ruser";
 
 Vue.use(Router);
 
@@ -19,6 +20,7 @@ export default function () {
     //加载各模块的路由
     rlayout(router);
     rhome(router);
+    ruser(router);
 
     return router;
 }
