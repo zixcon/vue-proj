@@ -7,7 +7,7 @@ export default function (router) {
         // component: resolve => require(["@/components/layout/Layout.vue"], resolve),
         // component: () => import("@/views/home/Index.vue"),
         component: () => import("@/components/layout/Layout.vue"),
-        // redirect:"/home/index",
+        redirect:"/home/index",
         children: [
                 {
                 path: "index",

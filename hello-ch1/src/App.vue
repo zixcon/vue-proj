@@ -1,6 +1,7 @@
 <template>
   <div id="app">
   <!--
+    // 调试用的
     <div>
         <div>
                 <router-link to="/about">/about</router-link>
@@ -10,6 +11,8 @@
   -->
     <div id="nav">
     <!--
+      这么写会导致嵌套路由失效，会出现两层app-layout才能正常路由，但是展示了两次app-layout，
+      所以这里不要这么写，用router-view嵌套展示
       <app-layout></app-layout>
     -->
       <router-view></router-view>

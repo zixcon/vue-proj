@@ -58,6 +58,7 @@ export default function (router) {
             // name: "home",
             // component: Home,
             // component: () => import("@/views/About.vue"),
+            // component 是必须元素
             component: () => import("@/components/layout/Layout.vue"),
             redirect:"/home",
         },
