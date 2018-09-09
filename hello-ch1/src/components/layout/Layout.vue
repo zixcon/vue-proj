@@ -62,3 +62,6 @@
     }
     
 </script>
+<style lang="less" scoped rel="stylesheet/less">
+    @import "~@/components/common/style/layout.less";
+</style>
