@@ -4,8 +4,24 @@ import rinitrouter from "./router";
 import store from "./store";
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
-// import 'components/theme/index.less';
-import 'iview/src/styles/index.less';
+
+// 按需引入组件,全局注册
+import {Alert,Icon,Button,Modal,Tree,Message,} from 'iview';
+Vue.component('Modal',Modal);
+Vue.component('Tree',Tree);
+Vue.component('Button',Button);
+Vue.component('Icon',Icon);
+Vue.component('Alert',Alert);
+Vue.component('Message',Message);
+
+// 全局注册 this.$axios.***
+import axios from 'axios';
+Vue.prototype.$axios = axios;
+import '@/components/base/basehttp.js';
+
+
+// import '@/components/theme/index.less';
+// import 'iview/src/styles/index.less';
 
 // 初始化路由
 // import rinit from "@/router/rinit";

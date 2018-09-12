@@ -51,7 +51,7 @@
 // });
 
 
-export default function (router) {
+export default function (router, child) {
     router.addRoutes([
         {
             path: "/",
@@ -59,12 +59,15 @@ export default function (router) {
             // component: Home,
             // component: () => import("@/views/About.vue"),
             // component 是必须元素
-            component: () => import("@/components/layout/Layout.vue"),
+            // component: () => import("@/components/layout/Layout.vue"),
+            // component: () => import("@/components/HelloWorld.vue"),
             redirect:"/home",
-        },
-        {
-            path: "/about",
-            component: resolve => require(["@/views/About.vue"], resolve)
+            // children: child
         }
+        // ,
+        // {
+        //     path: "/about",
+        //     component: resolve => require(["@/views/About.vue"], resolve)
+        // }
     ]);
 }

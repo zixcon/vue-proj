@@ -1,5 +1,6 @@
 <template>
     <div>
+    <!--
         <Row type="flex" justify="center" align="middle" class="code-row-bg">
             <Col span="4" >
                 姓名:
@@ -14,9 +15,11 @@
                 <Input v-model="value14" placeholder="输入..." clearable style="width: 200px" />
             </Col>
             <Col span="8">
-                <Button icon="ios-search">Search</Button>
+                <Button icon="ios-search" @click="ulistSearch">Search</Button>
             </Col>
         </Row>
+        -->
+        <uform @handleSearch="handleSearch"></uform>
         <br>
         <ugrid :columnsname="columnsname" :columnsdata="columnsdata"></ugrid>
         <upage :total="total"></upage>
@@ -26,14 +29,31 @@
 <script>
     import ugrid from "@/components/base/Grid.vue";
     import upage from "@/components/base/Page.vue";
+    import uform from "./Uform.vue";
 
     export default {
         components: {
             ugrid:ugrid,
-            upage:upage
+            upage:upage,
+            uform:uform
+        },
+        methods: {
+            handleSearch(user) {
+                var _this = this;
+                console.log(user);
+                this.$axios.get("getUserList",null).then(function (res) {
+                    //成功之后处理逻辑
+                    console.log(res)
+                },function (res) {
+                    _this.$Message.error('Fail!');
+                    //失败之后处理逻辑
+                    console.log("error:"+res)
+                })
+            }
         },
         data() {
             return {
+                value14: "",
                 columnsname: [
                     {
                         title: 'Name',

@@ -26,17 +26,22 @@
                                 <MenuItem name="3-5">流失用户</MenuItem>
                             </MenuGroup>
                         </Submenu>
-                        <MenuItem name="3">
+                        <MenuItem name="menu">
                             <Icon type="ios-analytics"></Icon>
-                            综合
+                            菜单管理
                         </MenuItem>
-                        <MenuItem name="4">
+                        <MenuItem name="privilege">
                             <Icon type="ios-paper"></Icon>
-                            Item 4
+                            权限管理
                         </MenuItem>
                     </div>
                 </Menu>
             </Header>
+                <!--
+                 <div>
+                    <router-view></router-view>
+                </div>
+                -->
 </template>
 <script>
 export default {
@@ -45,8 +50,9 @@ export default {
   },
   methods: {
     navselect(name) {
-        console.log("header:navselect:" + name)
-        this.$emit('navselect',name);
+        // console.log("header:navselect:" + name)
+        // this.$emit('navselect',name);
+        this.$router.push({name:name});
     }
   }
 }

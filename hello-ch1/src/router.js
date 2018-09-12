@@ -11,16 +11,20 @@ Vue.use(Router);
 export default function () {
     // 路由配置
     let router = new Router({
+      mode: "hash",
       routes:[]
     });
+    let child_routes = [];
   
-    //路由拦截
+    // 路由拦截
     rinterceptor(router);
   
-    //加载各模块的路由
-    rlayout(router);
+    // 加载各模块的路由
     rhome(router);
     ruser(router);
+
+    // 子模块都作为根的孩子
+    rlayout(router, child_routes);
 
     return router;
 }
