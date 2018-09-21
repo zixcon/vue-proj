@@ -72,18 +72,6 @@
     </div>
 </template>
 <script>
-    // import Vuex from 'vuex'
-    // const store = new Vuex.Store({
-    //     state: {
-    //         formData
-    //     },
-    //     mutations: {
-    //         Submit(state,) {
-    //             this.$emit('update:Submit', this.formData);
-    //             console.log(this.formData);
-    //         }
-    //     }
-    // });
     export default {
         
         model: {    
@@ -91,21 +79,14 @@
             prop: 'show',
             event: 'change'
         },
-        // model: {    
-        //     // 使用model， 这儿2个属性，prop属性说，我要将msg作为该组件被使用时（此处为aa组件被父组件调用）v-model能取到的值，event说，我emit ‘cc’ 的时候，参数的值就是父组件v-model收到的值。
-        //     prop: 'formData',
-        //     event: 'onSubmit'
-        // },
         props: {
-            // formData:Object,
             show:Boolean
         },
+        
         data () {
             return {
                 // prop代表父组件向子组件发送的数据，是不能在子组件的data中重复定义的
                 // show: false,
-                // 定义中间变量
-                // showbox:this.show,
                 styles: {
                     height: 'calc(100% - 55px)',
                     overflow: 'auto',
@@ -125,31 +106,18 @@
         },
         methods: {
             Cancel() {
-                this.$emit('change', false);
-            },
-            Submit() {
                 // 父节点打开后，无法重新打开 
                 // Prop 是单向绑定的：当父组件的属性变化时，将传导给子组件，但是反过来不会。这是为了防止子组件无意间修改了父组件的状态，来避免应用的数据流变得难以理解。
                 // 问题：Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop's value.
                 // 使用$emit通知父组件来操作，问题解决！
                 // this.show=false;
-                this.$emit('onSubmit', this.formData);
-                // console.log(this.formData);
+                this.$emit('change', false);
+            },
+            Submit() {
+                eventBus.$emit('onSubmit', this.formData);
                 this.$emit('change', false);
             }
         }
-        // ,
-        // mounted() {
-        //     console.log(this.formData);
-        //     this.$emit('update:treenode', this.formData);
-        // }
-        // ,
-        // watch: {
-        //     Submit() {
-        //         console.log('son ' + this);
-        //         this.$emit('treenode', this);
-        //     }
-        // }
     }
 </script>
 <style>

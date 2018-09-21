@@ -1,10 +1,8 @@
 <template>
     <div>
-        
         <Row>
-            <tree-show v-model="show" @onSubmit="onSubmit"></tree-show>
+            <tree-show v-model="show"></tree-show>
         </Row>
-       
         <br>
         <Row>
             <Col span="10">
@@ -25,14 +23,13 @@
             treeShow:menuadd,
             tree:tree
         },
-        methods: {
-            
-            onSubmit(data){
+        created(){
+            eventBus.$on('onSubmit',function(data){
                 console.log('parent');
                 console.log(data);
-                // this.show=false;
-                // console.log(this.show);
-            },
+            })
+        },
+        methods: {
             sysadd() {
                 var _this = this;
                 console.log();
@@ -44,16 +41,6 @@
                     //失败之后处理逻辑
                     console.log("error:"+res)
                 })
-            }
-        },
-        watch: {
-            // 因为不能直接修改 props 里的属性，所以不能直接把 formData 通过v-model进行绑定
-            // 在这里我们需要监听 formData，当它发生变化时，立即将值赋给 data 里的 form
-            Submit: {
-                immediate: true,
-                handler (val) {
-                    console.log(val);
-                }
             }
         },
         data () {
@@ -180,7 +167,17 @@
                             on: {
                                 click: () => {
                                     this.show = true; 
-                                    // this.append(data) 
+
+                                    let _this = this;
+                                    this.append(data) 
+                                    eventBus.$on('onSubmit',function(data){
+                                        console.log('sfsdf');
+                                        console.log(data);
+                                        _this.append({
+                                            title: 'cdsafalsfjls',
+                                            expand: true
+                                        })
+                                    })
                                 }
                             }
                         }),
