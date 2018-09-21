@@ -1,5 +1,5 @@
 <template>
-    <Table stripe :columns="columnsname" :data="columnsdata"></Table>
+    <Table highlight-row stripe :columns="columnsname" :data="columnsdata"></Table>
 </template>
 <script>
     export default {

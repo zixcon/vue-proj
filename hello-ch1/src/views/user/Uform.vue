@@ -13,7 +13,7 @@
         </Col>
         <Col span="4" pull="1">
         <FormItem>
-            <Button type="primary" @click="handleSearch('user')">Search</Button>
+            <Button type="default" @click="handleSearch('user')">Search</Button>
         </FormItem>
         </Col>
         </Row>

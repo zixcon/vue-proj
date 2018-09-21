@@ -5,6 +5,7 @@ import rinterceptor from "@/router/rinterceptor";
 import rlayout from "@/router/rlayout";
 import rhome from "@/router/rhome";
 import ruser from "@/router/ruser";
+import rsystem from "@/router/rsystem";
 
 Vue.use(Router);
 
@@ -22,7 +23,8 @@ export default function () {
     // 加载各模块的路由
     rhome(router);
     ruser(router);
-
+    rsystem(router);
+    
     // 子模块都作为根的孩子
     rlayout(router, child_routes);
 

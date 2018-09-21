@@ -1,25 +1,12 @@
 <template>
     <div>
-    <!--
-        <Row type="flex" justify="center" align="middle" class="code-row-bg">
-            <Col span="4" >
-                姓名:
+        <Row>
+            <Col span="4">
+                <add></add>
             </Col>
-            <Col span="4" pull="1">
-                <Input v-model="value14" placeholder="输入..." clearable style="width: 200px" />
-            </Col>
-            <Col span="4" >
-                编号:
-            </Col>
-            <Col span="4" pull="1">
-                <Input v-model="value14" placeholder="输入..." clearable style="width: 200px" />
-            </Col>
-            <Col span="8">
-                <Button icon="ios-search" @click="ulistSearch">Search</Button>
-            </Col>
+            <Col span="12"></Col>
         </Row>
-        -->
-        <uform @handleSearch="handleSearch"></uform>
+
         <br>
         <ugrid :columnsname="columnsname" :columnsdata="columnsdata"></ugrid>
         <upage :total="total"></upage>
@@ -29,18 +16,18 @@
 <script>
     import ugrid from "@/components/base/Grid.vue";
     import upage from "@/components/base/Page.vue";
-    import uform from "./Uform.vue";
+    import add from "./roleadd.vue";
 
     export default {
         components: {
             ugrid:ugrid,
             upage:upage,
-            uform:uform
+            add:add
         },
         methods: {
-            handleSearch(user) {
+            sysadd() {
                 var _this = this;
-                console.log(user);
+                console.log();
                 this.$axios.get("getUserList",null).then(function (res) {
                     //成功之后处理逻辑
                     console.log(res)
@@ -49,36 +36,38 @@
                     //失败之后处理逻辑
                     console.log("error:"+res)
                 })
-            },
-            show (index) {
-                console.log(this.columnsdata[index]);
-                // this.$Modal.info({
-                //    title: 'User Info',
-                //    content: `Name：${this.data6[index].name}<br>Age：${this.data6[index].age}<br>Address：${this.data6[index].address}`
-                // });
             }
         },
         data() {
             return {
-                value14: "",
+                value3: false,
                 columnsname: [
                     {
-                        title: 'Name',
-                        key: 'name'
+                        type: 'index',
+                        width: 60,
+                        align: 'center'
                     },
                     {
-                        title: 'Age',
-                        key: 'age'
+                        title: '应用名称',
+                        key: 'applicationName'
                     },
                     {
-                        title: 'Address',
-                        key: 'address'
+                        title: '角色编码',
+                        key: 'code'
                     },
                     {
-                        title: 'Action',
+                        title: '状态',
+                        key: 'status'
+                    },
+                    {
+                        title: '角色描述',
+                        key: 'desc'
+                    },
+                    {
+                        title: '操作',
                         key: 'action',
                         fixed: 'right',
-                        width: 120,
+                        width: 250,
                         render: (h, params) => {
                             return h('div', [
                                 h('Button', {
@@ -91,7 +80,7 @@
                                             this.show(params.index)
                                         }
                                     }
-                                }, '映射角色'),
+                                }, '映射菜单'),
                                 h('Button', {
                                     props: {
                                         type: 'text',
@@ -102,35 +91,39 @@
                                             this.show(params.index)
                                         }
                                     }
-                                }, '编辑')
+                                }, '映射权限'),
+                                h('Button', {
+                                    props: {
+                                        type: 'text',
+                                        size: 'small'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.show(params.index)
+                                        }
+                                    }
+                                }, '编辑'),
+                                h('Button', {
+                                    props: {
+                                        type: 'text',
+                                        size: 'small'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.show(params.index)
+                                        }
+                                    }
+                                }, '删除')
                             ]);
                         }
                     }
                 ],
                 columnsdata: [
                     {
-                        name: 'John Brown',
-                        age: 18,
-                        address: 'New York No. 1 Lake Park',
-                        date: '2016-10-03'
-                    },
-                    {
-                        name: 'Jim Green',
-                        age: 24,
-                        address: 'London No. 1 Lake Park',
-                        date: '2016-10-01'
-                    },
-                    {
-                        name: 'Joe Black',
-                        age: 30,
-                        address: 'Sydney No. 1 Lake Park',
-                        date: '2016-10-02'
-                    },
-                    {
-                        name: 'Jon Snow',
-                        age: 26,
-                        address: 'Ottawa No. 2 Lake Park',
-                        date: '2016-10-04'
+                        applicationName: 'John Brown',
+                        code: 1,
+                        status: 'New York No. 1 Lake Park',
+                        desc: '2016-10-03'
                     }
                 ],
                 total: 1000

@@ -21,6 +21,21 @@
                             <Icon type="ios-keypad"></Icon>
                             用户管理
                         </MenuItem>
+                        <Submenu name="application">
+                            <template slot="title">
+                                <Icon type="ios-stats" />
+                                系统管理
+                            </template>
+                            <MenuGroup title="系统">
+                                <MenuItem name="system">系统</MenuItem>
+                            </MenuGroup>
+                            <MenuGroup title="RBAC">
+                                <MenuItem name="role">角色</MenuItem>
+                                <MenuItem name="menu">菜单</MenuItem>
+                                <MenuItem name="privilege">权限</MenuItem>
+                                <MenuItem name="resource">资源</MenuItem>
+                            </MenuGroup>
+                        </Submenu>
                         <Submenu name="stats">
                             <template slot="title">
                                 <Icon type="ios-stats" />
@@ -36,14 +51,6 @@
                                 <MenuItem name="3-5">流失用户</MenuItem>
                             </MenuGroup>
                         </Submenu>
-                        <MenuItem name="menu">
-                            <Icon type="ios-analytics"></Icon>
-                            菜单管理
-                        </MenuItem>
-                        <MenuItem name="privilege">
-                            <Icon type="ios-paper"></Icon>
-                            权限管理
-                        </MenuItem>
                     </div>
                 </Menu>
             </Header>

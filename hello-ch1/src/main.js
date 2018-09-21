@@ -19,6 +19,8 @@ import axios from 'axios';
 Vue.prototype.$axios = axios;
 import '@/components/base/basehttp.js';
 
+//注册全局事件对象
+window.eventBus = new Vue();
 
 // import '@/components/theme/index.less';
 // import 'iview/src/styles/index.less';
