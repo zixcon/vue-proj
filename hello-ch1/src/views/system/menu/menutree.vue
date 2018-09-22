@@ -23,12 +23,12 @@
             treeShow:menuadd,
             tree:tree
         },
-        created(){
-            eventBus.$on('onSubmit',function(data){
-                console.log('parent');
-                console.log(data);
-            })
-        },
+        // created(){
+        //     eventBus.$on('onSubmit',function(data){
+        //         console.log('parent');
+        //         console.log(data);
+        //     })
+        // },
         methods: {
             sysadd() {
                 var _this = this;
@@ -167,16 +167,13 @@
                             on: {
                                 click: () => {
                                     this.show = true; 
-
-                                    let _this = this;
-                                    this.append(data) 
-                                    eventBus.$on('onSubmit',function(data){
-                                        console.log('sfsdf');
-                                        console.log(data);
-                                        _this.append({
-                                            title: 'cdsafalsfjls',
-                                            expand: true
-                                        })
+                                    let self = this;
+                                    // this.append(data) 
+                                    eventBus.$on('onSubmit',function(formdata){
+                                        // 销毁，否则会被消费多次
+                                        eventBus.$off('onSubmit');
+                                        console.log(formdata);
+                                        self.append(data);
                                     })
                                 }
                             }
@@ -189,6 +186,15 @@
                                 click: () => { this.remove(root, node, data) }
                             }
                         })
+                        // h('tree-show', {
+                        //     props:{show:false},
+                        //     components:{'tree-show':menuadd},
+                        //     methods:{
+                        //         beforeDestroy() {
+                        //             eventBus.$off('onSubmit');
+                        //         }
+                        //     }
+                        // })
                     ])
                 ]);
             },

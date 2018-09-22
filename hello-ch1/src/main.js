@@ -23,7 +23,6 @@ import '@/components/base/basehttp.js';
 window.eventBus = new Vue();
 
 // import '@/components/theme/index.less';
-// import 'iview/src/styles/index.less';
 
 // 初始化路由
 // import rinit from "@/router/rinit";
